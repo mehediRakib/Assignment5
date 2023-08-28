@@ -22,17 +22,18 @@ const server=http.createServer((req,res)=>{
 
         fs.writeFile("demo.txt","hello world",(err)=>{
             if(err){
-                res.writeHead(500,{'Content-Type':'text/plain'});
-                res.end("File is not created ");
+                res.writeHead(500, { 'Content-Type': 'text/plain' });
+                res.write("File is not created ");
+                res.end();
 
             }
             else{
-                res.writeHead(200,{'Content-Type':'text/plain'});
-                res.end("File is created succesffully");
+                res.writeHead(200, { 'Content-Type': 'text/plain' });
+                res.write("File is created succesffully");
+                res.end();
 
             }
         });
-        res.end();
     }
 
 })
